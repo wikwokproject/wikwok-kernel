@@ -1,4 +1,6 @@
 /* Copyright (c) 2018-2020, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+ * Copyright (C) 2021 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -1146,7 +1148,11 @@ static void mhi_process_cmd_completion(struct mhi_controller *mhi_cntrl,
 		chan = MHI_TRE_GET_CMD_CHID(cmd_pkt);
 		if (chan >= mhi_cntrl->max_chan) {
 			MHI_ERR("invalid channel id %u\n", chan);
+<<<<<<< HEAD
 			break;
+=======
+			goto next_er_element;
+>>>>>>> 82e7d59525bd (Kernel: Xiaomi kernel changes for Redmi Note 8 and Redmi Note 8T Android Q)
 		}
 		mhi_chan = &mhi_cntrl->mhi_chan[chan];
 		write_lock_bh(&mhi_chan->lock);
@@ -1328,7 +1334,11 @@ int mhi_process_data_event_ring(struct mhi_controller *mhi_cntrl,
 			event_quota--;
 		}
 
+<<<<<<< HEAD
 next_er_element:
+=======
+	next_er_element:
+>>>>>>> 82e7d59525bd (Kernel: Xiaomi kernel changes for Redmi Note 8 and Redmi Note 8T Android Q)
 		mhi_recycle_ev_ring_element(mhi_cntrl, ev_ring);
 		local_rp = ev_ring->rp;
 		dev_rp = mhi_to_virtual(ev_ring, er_ctxt->rp);

@@ -536,10 +536,14 @@ static void __init mm_init(void)
 	pti_init();
 }
 
+int fpsensor=1;
+
+int lct_hardwareid = 0;  //if board id is 2,it`s new board for imx582
 asmlinkage __visible void __init start_kernel(void)
 {
 	char *command_line;
 	char *after_dashes;
+	char *p=NULL;
 
 	set_task_stack_end_magic(&init_task);
 	smp_setup_processor_id();

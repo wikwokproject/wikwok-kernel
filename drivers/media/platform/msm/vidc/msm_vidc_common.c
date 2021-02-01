@@ -1,4 +1,6 @@
 /* Copyright (c) 2012-2020, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2012-2019, The Linux Foundation. All rights reserved.
+ * Copyright (C) 2021 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -5329,7 +5331,11 @@ int msm_comm_flush(struct msm_vidc_inst *inst, u32 flags)
 	}
 
 	if (ip_flush)
+<<<<<<< HEAD
 		mutex_lock(&inst->bufq[OUTPUT_PORT].lock);
+=======
+		 mutex_lock(&inst->bufq[OUTPUT_PORT].lock);
+>>>>>>> 82e7d59525bd (Kernel: Xiaomi kernel changes for Redmi Note 8 and Redmi Note 8T Android Q)
 	if (op_flush)
 		mutex_lock(&inst->bufq[CAPTURE_PORT].lock);
 
@@ -5388,9 +5394,15 @@ int msm_comm_flush(struct msm_vidc_inst *inst, u32 flags)
 	}
 
 	if (op_flush)
+<<<<<<< HEAD
 		mutex_unlock(&inst->bufq[CAPTURE_PORT].lock);
 	if (ip_flush)
 		mutex_unlock(&inst->bufq[OUTPUT_PORT].lock);
+=======
+		 mutex_unlock(&inst->bufq[CAPTURE_PORT].lock);
+	if (ip_flush)
+		 mutex_unlock(&inst->bufq[OUTPUT_PORT].lock);
+>>>>>>> 82e7d59525bd (Kernel: Xiaomi kernel changes for Redmi Note 8 and Redmi Note 8T Android Q)
 
 	if (rc) {
 		dprintk(VIDC_ERR,
